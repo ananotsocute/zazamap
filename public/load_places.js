@@ -17,9 +17,10 @@
 					currentPlace = marker.placeData;  // ← set currentPlace here
 					
 					document.getElementById('PlacePopUp').style.display = 'block';
-					document.getElementById('PlaceName').innerText = `📌 ${marker.placeData.name}`;
+					document.getElementById('PopUp-Footer').style.display = 'none';
+					document.getElementById('PlaceName').innerText = `${marker.placeData.name}`;
 					document.getElementById('PlaceDescription').innerText = `${marker.placeData.description}`;
-					document.getElementById("googlemaps-link").innerHTML = `<a href="https://www.google.com/maps?q=${marker.placeData.lat},${marker.placeData.lng}">📌 Plan route with google Maps</a>`
+					document.getElementById("googlemaps-link").innerHTML = `<a href="https://www.google.com/maps?q=${marker.placeData.lat},${marker.placeData.lng}">📌 Directions</a>`
 					document.getElementById("bubatzkarte-link").innerHTML = `<a href="https://bubatzkarte.app/map?lat=${marker.placeData.lat}&lng=${marker.placeData.lng}">🇩🇪 See if you can smoke here</a>`
 				});
 			});
@@ -41,7 +42,7 @@
 					document.getElementById('PlacePopUp').style.display = 'block';
 					document.getElementById('PlaceName').innerText = `📌 ${marker.placeData.name}`;
 					document.getElementById('PlaceDescription').innerText = `${marker.placeData.description}`;
-					document.getElementById("googlemaps-link").innerHTML = `<a href="https://www.google.com/maps?q=${marker.placeData.lat},${marker.placeData.lng}">📌 Plan route with google Maps</a>`
+					document.getElementById("googlemaps-link").innerHTML = `<a href="https://www.google.com/maps?q=${marker.placeData.lat},${marker.placeData.lng}">📌 Directions</a>`
 					document.getElementById("bubatzkarte-link").innerHTML = `<a href="https://bubatzkarte.app/map?lat=${marker.placeData.lat}&lng=${marker.placeData.lng}">🇩🇪 See if you can smoke here</a>`
 				});
 			});
@@ -51,6 +52,8 @@
 	})
     .catch(error => console.error("Error loading places:", error));
         
-        
+function ExpandPopUp() {
+	document.getElementById("PopUp-Footer").style.display = "block";
+}       
 
 		

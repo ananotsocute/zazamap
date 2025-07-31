@@ -12,6 +12,10 @@
 </head>
 
 <body>
+	<div id="LoadingScreen">
+      <h1>🍃 The ZaZa Map 🍃</h1>
+    </div>
+
     <div id="map"></div>
 	
 	<div id="GoToHome">👽</div>
@@ -20,7 +24,7 @@
 	<!-- Search-bar -->
 		<div class="search-container">
 			<span class="search-icon">🔍</span>
-			<input type="text" placeholder="Ort suchen..." id="search-input" />
+			<input type="text" placeholder="Search for a place..." id="search-input" />
 			<span class="clear-button" id="clearButton">✖</span>
 			<ul id="suggestions"></ul>
 		</div>
@@ -39,7 +43,7 @@
 		<br>
 		If you want to support this project, you can <a href="https://coff.ee/ananotsocute">buy us some "coffee"</a>.
 		</p>
-        <button onclick="closewelcomepopup()">Close</button>
+        <div class="close-popup" onclick="closewelcomepopup()">❌</div>
 	<script type="text/javascript"> function closewelcomepopup() {document.getElementById("welcome-popup").style.display = "none";} </script>
     </div>
 	
@@ -53,19 +57,25 @@
         <textarea id="placeDescription" maxlength="500"></textarea>
         <p id="coordinates">Click on the map to get coordinates.</p>
         <button onclick="savePlace()">Save</button>
-        <button onclick="closeaddplacepopup()">Cancel</button>
+		<div class="close-popup" onclick="closeaddplacepopup()">❌</div>
 	<script type="text/javascript"> function closeaddplacepopup() {document.getElementById("AddPlace-popup").style.display = "none";} </script>
 	
     </div>
 	
 	<!-- PopUp for existing Place -->
 	<div id="PlacePopUp" class="popup" style="text-align:center; display:none; animation: slideUp 0.5s ease-out forwards;">
-	<div class="popup-handle" onclick="closeplacepopup()"></div>
-		<h1 id="PlaceName">Place Name</h1>
-		<span id="Report" title="Report this location" onClick="report()">🚩</span>
-		<span id="PlaceDescription">Description</span>
-		<span id="googlemaps-link">THIS IS A LINK TO GOOGLE MAPS</span>
-		<span id="bubatzkarte-link">THIS IS A LINK TO BUBATZKARTE</span>
+		<div id="Popup-header" onClick="ExpandPopUp()">
+			<div class="popup-handle" onclick="closeplacepopup()"></div>
+			<h1 id="PlaceName">Place Name</h1>
+			<div class="close-popup" onclick="closeplacepopup()">❌</div>
+			<span id="Report" title="Report this location" onClick="report()">🚩</span>
+			<button id="googlemaps-link" class="popup-button">Directions</b>
+			<button id="share-place" class="popup-button">Share</b>
+		</div>
+		<div id="PopUp-Footer" style="display:none">
+			<br><span id="PlaceDescription">Description</span>
+			<br><span id="bubatzkarte-link">THIS IS A LINK TO BUBATZKARTE</span>
+		</div>
 	<script type="text/javascript"> function closeplacepopup() {document.getElementById("PlacePopUp").style.display = "none";} </script>
 	</div>
 	
@@ -74,6 +84,8 @@
 	<script src="add_place.js"></script>
 	<script src="search.js"></script>
 	<script src="report.js"></script>
+	<script src="loadingscreen.js"></script>
+	<script src="alienwisdoms.js"></script>
 	
 </body>
 </html>

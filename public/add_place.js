@@ -28,6 +28,9 @@ function animatePopUp() {
 		let clickMarker = null; // Store the marker
 	
 	map.on('click', function (e) {
+	
+	document.getElementById("PlacePopUp").style.display = "none";
+		
     const lat = e.latlng.lat;
     const lng = e.latlng.lng;
 	

@@ -43,25 +43,25 @@
         });
 
 if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        const { latitude, longitude } = position.coords;
-        map.setView([latitude, longitude], 13);
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
+      const { latitude, longitude } = position.coords;
+      map.setView([latitude, longitude], 13);
 
-        // Optional: Add a marker
-        L.marker([latitude, longitude], { icon: CurrentPositionIcon })
-          .addTo(map)
-		  .bindPopup('🛸Smells like weed over here!<br>Who could that have been?🛸')
-          .openPopup();
-      },
-      (error) => {
-        console.error("Geolocation error:", error.message);
-        // You can fall back to a default location here
-      }
-    );
-  } else {
-    alert("Geolocation is not supported by your browser.");
-  }
+      // Create marker
+      const marker = L.marker([latitude, longitude], { icon: CurrentPositionIcon })
+        .addTo(map)
+        .bindPopup(AlienWisdoms)
+        .openPopup();
+    },
+    (error) => {
+      console.error("Geolocation error:", error.message);
+      // Optional: fallback location
+    }
+  );
+} else {
+  alert("Geolocation is not supported by your browser.");
+}
   
 // GO TO HOME BUTTON
 document.getElementById("GoToHome").addEventListener('click', () => {
