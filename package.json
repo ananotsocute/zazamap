@@ -4,5 +4,8 @@
   "description": "A Map were you can find and share the best places to light up!",
   "updates": "",
   "main": "server.js",
-  "author": "ananotsocute"
+  "author": "ananotsocute",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
   }
