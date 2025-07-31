@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>The ZaZa Map</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="stylesheet" type="text/css" href="stylesheet.css">
+	
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body>
+    <div id="map"></div>
+	
+	<!-- Search-bar -->
+	<div id="top_overlay">
+		<div class="search-container">
+			<span class="search-icon">🔍</span>
+			<input type="text" placeholder="Ort suchen..." class="search-input" />
+		</div>
+	</div>
+    
+	<!-- Welcome PopUp-->
+		<div id="welcome-popup" style="display:block">
+       <h3>Welcome fellow smoker!</h3>
+        <p>
+		This is the ZaZa Map!<br>
+		Here you can find all the good places in your area to light up.<br>
+		🍃 The leafs are places that other fans of the green herb are reccomending to you,<br>
+		☕ The Coffee's are all the good places were you can gather some herb.<br>
+		<br>
+		If you find something inappropriate, please let us now by clicking the " 🚩"-button to report the place.<br>
+		<br>
+		If you want to support this project, you can <a href="https://www.coff.ee/ananotsocute">buy us some "coffee"</a>.
+		</p>
+        <button onclick="closewelcomepopup()">Close</button>
+		<script type="text/javascript">
+		function closewelcomepopup() {document.getElementById("welcome-popup").style.display = "none";}
+		</script>
+    </div>
+	
+	<!-- PopUp for new Place -->
+	<div id="AddPlace-popup" class="popup">
+	<div class="popup-handle" onclick="closeaddplacepopup()"></div>
+		<div id="popup-header">
+			<h3>Add a New Place</h3>
+		</div>
+        <label>Name:</label>
+        <input type="text" id="placeName">
+        <label>Description (max 500 chars):</label>
+        <textarea id="placeDescription" maxlength="500"></textarea>
+        <p id="coordinates">Click on the map to get coordinates.</p>
+        <button onclick="savePlace()">Save</button>
+        <button onclick="closeaddplacepopup()">Cancel</button>
+	<script type="text/javascript"> function closeaddplacepopup() {document.getElementById("AddPlace-popup").style.display = "none";} </script>
+	
+    </div>
+	
+	<!-- PopUp for existing Place -->
+	<div id="PlacePopUp" class="popup" style="text-align:center; display:none; animation: slideUp 0.5s ease-out forwards;">
+	<div class="popup-handle" onclick="closeplacepopup()"></div>
+		<h1 id="PlaceName">Place Name</h1>
+		<p id="PlaceDescription">Description</p>
+		<a href="https://www.google.com/maps/dir/?api=1&destination=">Plan route with google Maps</a>
+<script type="text/javascript"> function closeplacepopup() {document.getElementById("PlacePopUp").style.display = "none";} </script>
+	</div>
+
+	<script src="load_places.js"></script>
+	<script src="add_place.js"></script>
+</body>
+</html>
