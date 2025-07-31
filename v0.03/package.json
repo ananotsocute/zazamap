@@ -1,0 +1,8 @@
+{
+  "name": "ZaZa Map",
+  "version": "0.03",
+  "description": "A Map were you can find and share the best places to light up!",
+  "updates": "",
+  "main": "server.js",
+  "author": "ananotsocute"
+  }
